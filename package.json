@@ -1,8 +1,8 @@
 {
-  "name": "server",
+  "name": "fortnite-project",
   "version": "1.0.0",
-  "description": "fornite project",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -25,6 +25,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eeefg650/Fortnite-project.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eeefg650/Fortnite-project/issues"
+  },
+  "homepage": "https://github.com/eeefg650/Fortnite-project#readme"
 }
