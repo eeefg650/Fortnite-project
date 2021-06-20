@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../DB/users");
+const User = require("../DB/Users");
 
 const GetPointsDBAndCheckToken = (req, res, next) => {
   const ReqHeader = req.headers.authorization;
