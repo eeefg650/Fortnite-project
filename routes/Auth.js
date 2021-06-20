@@ -3,7 +3,7 @@ const Router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
-const User = require("../DB/users");
+const User = require("../DB/Users");
 require("dotenv").config();
 
 Router.post("/signup", function (req, res) {
