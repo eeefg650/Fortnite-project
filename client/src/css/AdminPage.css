@@ -1,0 +1,21 @@
+p {
+  color: red;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+textarea {
+  font-weight: bold;
+  font-style: italic;
+}
+
+button {
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: greenyellow;
+  border: 2px  solid black;
+  display: grid;
+}
+
+.delete {
+ background: red;
+}
