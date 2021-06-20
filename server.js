@@ -102,7 +102,7 @@ app.use("/", TriviaController);
 const CheckPoints = require("./routes/CheckPoints");
 app.use("/", CheckPoints);
 
-const checkToken = require("./routes/checkToken");
+const checkToken = require("./routes/CheckToken");
 app.use(
   "/CheckJWT",
   passport.authenticate("jwt", { session: false }),
