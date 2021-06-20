@@ -3,7 +3,7 @@ const JwtStrategry = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const bcrypt = require("bcryptjs");
 //Load User Model
-const User = require("../DB/users");
+const User = require("../DB/Users");
 
 // process.env.SECRET_KEY = "secret";
 module.exports = function (passport) {
