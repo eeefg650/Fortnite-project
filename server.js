@@ -59,9 +59,9 @@ app.use(function (req, res, next) {
 // Passport Config
 require("./config/passport")(passport);
 
-app.use(bodyParser.urlencoded({ limit: "700mb", extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.json());
-app.use(bodyParser.json({ limit: "700mb" }));
+app.use(bodyParser.json());
 
 app.use(
   cors({
@@ -77,7 +77,7 @@ app.use(express.static(root));
 app.get("/login", (req, res) => {
   res.sendFile("index.html", { root });
 });
-app.get("/register", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile("index.html", { root });
 });
 app.get("/skin", (req, res) => {
