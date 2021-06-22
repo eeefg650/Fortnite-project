@@ -21,11 +21,11 @@ mongoose
 const app = express();
 
 // This sets custom options for the `referrerPolicy` middleware.
-app.use(
-  helmet({
-    referrerPolicy: { policy: "no-referrer" },
-  })
-);
+// app.use(
+//   helmet({
+//     referrerPolicy: { policy: "no-referrer" },
+//   })
+// );
 
 // ...is equivalent to this:
 // app.use(helmet.contentSecurityPolicy());
