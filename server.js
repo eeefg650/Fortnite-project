@@ -6,7 +6,7 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const db = require("./config/keys");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 
 // Connect to MongoDB
 mongoose
@@ -28,17 +28,17 @@ app.use(
 );
 
 // ...is equivalent to this:
-app.use(helmet.contentSecurityPolicy());
-app.use(helmet.dnsPrefetchControl());
-app.use(helmet.expectCt());
-app.use(helmet.frameguard());
-app.use(helmet.hidePoweredBy());
-app.use(helmet.hsts());
-app.use(helmet.ieNoOpen());
-app.use(helmet.noSniff());
-app.use(helmet.permittedCrossDomainPolicies());
-app.use(helmet.referrerPolicy());
-app.use(helmet.xssFilter());
+// app.use(helmet.contentSecurityPolicy());
+// app.use(helmet.dnsPrefetchControl());
+// app.use(helmet.expectCt());
+// app.use(helmet.frameguard());
+// app.use(helmet.hidePoweredBy());
+// app.use(helmet.hsts());
+// app.use(helmet.ieNoOpen());
+// app.use(helmet.noSniff());
+// app.use(helmet.permittedCrossDomainPolicies());
+// app.use(helmet.referrerPolicy());
+// app.use(helmet.xssFilter());
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -74,10 +74,19 @@ app.use(morgan("dev")); // log every request to the console
 
 const root = require("path").join(__dirname, "/public");
 app.use(express.static(root));
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile("index.html", { root });
 });
+// app.get("/login", (req, res) => {
+//   res.sendFile("index.html", { root });
+// });
 
+// app.get("/skin", (req, res) => {
+//   res.sendFile("index.html", { root });
+// });
+// app.get("/trivia", (req, res) => {
+//   res.sendFile("index.html", { root });
+// });
 
 const authenticated = require("./routes/Auth");
 app.use("/", authenticated);
