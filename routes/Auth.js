@@ -105,7 +105,7 @@ Router.post("/login", function (req, res, next) {
       const token = GenerateAccessToken(payload, options);
       const RefreshToken = jwt.sign(
         payload,
-        process.env.refreshTokenSecret,
+       `${process.env.refreshTokenSecret}`,
         options
       );
       User.updateOne(
@@ -125,7 +125,7 @@ Router.post("/refreshtoken", (req, res) => {
   const ReqHeader = req.headers.authorization;
   const token = ReqHeader.split(" ")[1];
 
-  jwt.verify(token, process.env.refreshTokenSecret, async (err, user) => {
+  jwt.verify(token, `${process.env.refreshTokenSecret}`, async (err, user) => {
     try {
       const UserId = user.sub;
       if (err) throw err;
@@ -159,7 +159,7 @@ Router.post("/refreshtoken", (req, res) => {
 });
 
 const GenerateAccessToken = (payload, options) => {
-  return jwt.sign(payload, process.env.TokenKey, options);
+  return jwt.sign(payload, `${process.env.TokenKey}`, options);
 };
 
 // updatepoints will be become the last middleware

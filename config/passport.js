@@ -9,7 +9,7 @@ const User = require("../DB/Users");
 module.exports = function (passport) {
   let options = {};
   options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-  options.secretOrKey = {secretOrKey: process.env.TokenKey};
+  options.secretOrKey = {secretOrKey: `${process.env.TokenKey}`};
   passport.use(
     new LocalStrategy(
       {
