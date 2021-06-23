@@ -6,7 +6,7 @@ const GetPointsDBAndCheckToken = (req, res, next) => {
   const token = ReqHeader.split(" ")[1];
   console.log(token);
 
-  jwt.verify(token, process.env.TokenKey, (err, user) => {
+  jwt.verify(token, `${process.env.TokenKey}`, (err, user) => {
     try {
       if (err) throw err;
       req.user = user;
