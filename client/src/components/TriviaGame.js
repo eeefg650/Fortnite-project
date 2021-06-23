@@ -16,14 +16,8 @@ function TriviaGame() {
   const [RandomQuestion, setRandomQuestion] = useState(0);
   const { Userid } = useContext(UserinfoContext);
   const GetAllQuestions = async () => {
-    const headers = {
-      "Content-Type": "application/json",
-    };
-    const config = {
-      score: score
-    }
     try {
-      const res = await axios.post(`${Api}questions`, config, { headers });
+      const res = await axios.post(`${Api}questions`);
 
       console.log(res.data);
       setquestions(res.data.answerOptions);
@@ -82,7 +76,7 @@ function TriviaGame() {
   };
   const ResetGame = async () => {
     try {
-      const res = await axios.get(`${Api}restartGame`);
+      const res = await axios.post(`${Api}restartGame`);
       console.log(res.data);
       setScore(res.data.TotalCorrectAnswer);
       setShowScore(false);

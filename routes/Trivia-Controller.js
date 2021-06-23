@@ -66,7 +66,7 @@ Router.post("/questions", (req, res) => {
     });
   }
 });
-Router.get("/restartGame", CheckIfResetGame, (req, res) => {
+Router.post("/restartGame", CheckIfResetGame, (req, res) => {
   try {
     res.status(200).json({
       CurrentQuestion: 0,
