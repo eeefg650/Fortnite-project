@@ -16,8 +16,14 @@ function TriviaGame() {
   const [RandomQuestion, setRandomQuestion] = useState(0);
   const { Userid } = useContext(UserinfoContext);
   const GetAllQuestions = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const config = {
+      score: score
+    }
     try {
-      const res = await axios.get(`${Api}questions`);
+      const res = await axios.get(`${Api}questions`, config, { headers });
 
       console.log(res.data);
       setquestions(res.data.answerOptions);
