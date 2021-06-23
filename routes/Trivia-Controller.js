@@ -46,12 +46,12 @@ Router.post("/trivia", HandleAnswerOptionClick, async (req, res) => {
   }
 });
 
-Router.get("/questions", (req, res) => {
+Router.post("/questions", (req, res) => {
   const questionText = questions.map((Question) => {
-    Question.questionText;
+   return Question.questionText;
   });
   const answerOptions = questions.map((Answer) => {
-    Answer.answerOptions;
+   return Answer.answerOptions;
   });
 
   try {

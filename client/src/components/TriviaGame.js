@@ -23,7 +23,7 @@ function TriviaGame() {
       score: score
     }
     try {
-      const res = await axios.get(`${Api}questions`, config, { headers });
+      const res = await axios.post(`${Api}questions`, config, { headers });
 
       console.log(res.data);
       setquestions(res.data.answerOptions);
