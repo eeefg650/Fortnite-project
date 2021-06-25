@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Website of the live project
 https://fortnite-project.herokuapp.com/
 
-## Quick Start 🌐
+### Quick Start 🌐
 Add a default.json file in config folder ==> Keys.js
 
 {
