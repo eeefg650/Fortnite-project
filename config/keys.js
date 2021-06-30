@@ -1,5 +1,4 @@
-dbPassword =
-  "mongodb+srv://haim40:dinroda123@cluster-fortnite.kw9pn.mongodb.net/Points&Users";
+dbPassword = "";
 
 module.exports = dbPassword;
 
