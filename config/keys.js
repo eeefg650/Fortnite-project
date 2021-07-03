@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 dbPassword = process.env.KEY;
 module.exports = dbPassword;
 
