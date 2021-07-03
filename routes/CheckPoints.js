@@ -11,16 +11,16 @@ require("dotenv").config();
 
 //  the middleware came here when the points are not illegal
 Router.get("/illegalpoints", (req, res) => {
-  res.status(403).json({ msg: "המערכת מזהה שהנקודות שצברת אינה חוקית" });
+ return res.status(403).json({ msg: "המערכת מזהה שהנקודות שצברת אינה חוקית" });
 });
 
 Router.get("/UpadtePointsFaild", (req, res) => {
-  res
+ return res
     .status(400)
     .json({ msg: "עקב שגיאה קניית הסקין לא בוצעה רענן את הדף ונסה שוב" });
 });
 Router.get("/NotEnoughPoints", (req, res) => {
-  res.status(400).json({ msg: "אין לך מספיק נקודות לקנות סקין זה" });
+ return res.status(400).json({ msg: "אין לך מספיק נקודות לקנות סקין זה" });
 });
 
 Router.use(GetPointsDBAndCheckToken);
