@@ -14,14 +14,6 @@ Router.get("/illegalpoints", (req, res) => {
  return res.status(403).json({ msg: "המערכת מזהה שהנקודות שצברת אינה חוקית" });
 });
 
-Router.get("/UpadtePointsFaild", (req, res) => {
- return res
-    .status(400)
-    .json({ msg: "עקב שגיאה קניית הסקין לא בוצעה רענן את הדף ונסה שוב" });
-});
-Router.get("/NotEnoughPoints", (req, res) => {
- return res.status(400).json({ msg: "אין לך מספיק נקודות לקנות סקין זה" });
-});
 
 Router.use(GetPointsDBAndCheckToken);
 Router.use(CheckPointsMatch);

@@ -74,7 +74,7 @@ const CheckIfThereIsEnoughPoints = (req, res, next) => {
         throw new Error("NotEnoughPoints");
       } else if (DB.Points === 0) {
         console.log("you dont have Points");
-        return res.redirect("/NotEnoughPoints");
+        throw new Error("NotEnoughPoints");
       } else {
         console.log("good you have Enough Points");
         return next();
@@ -102,7 +102,7 @@ const UpdatePoints = (req, res, next) => {
 
     const UpdatePoints = body.Total - body.PriceSkin;
     if (UpdatePoints === !body.Total || !body.PriceSkin)
-      return res.redirect("/UpadtePointsFaild");
+      throw new ErrorEvent("Update Points Faild");
 
     User.updateOne({ _id: body.Userid }, { $set: { Points: UpdatePoints } })
       .then((result) => {
@@ -117,6 +117,10 @@ const UpdatePoints = (req, res, next) => {
       });
   } catch (e) {
     console.error(e);
+    if (e instanceof ErrorEvent)
+      return res
+        .status(400)
+        .json({ msg: "עקב שגיאה קניית הסקין לא בוצעה רענן את הדף ונסה שוב" });
     res.status(401).json({
       msg: "פג תוקף ההתברות נסה שנית",
     });
