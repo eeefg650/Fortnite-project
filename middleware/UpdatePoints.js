@@ -64,14 +64,14 @@ const CheckIfThereIsEnoughPoints = (req, res, next) => {
   const body = req.body;
   req.PointsFromDB.map((DB) => {
     try {
-      if (!body.PriceSkin) 
-      throw new Error("the PriceSkin are not selected");
+      if (!body.PriceSkin)
+        throw new ErrorEvent("the PriceSkin are not selected");
 
       let CheckValidatePoints = DB.Points - body.PriceSkin;
 
       if (CheckValidatePoints < 0) {
         console.log("Not Enough Points");
-        return res.redirect("/NotEnoughPoints");
+        throw new Error("NotEnoughPoints");
       } else if (DB.Points === 0) {
         console.log("you dont have Points");
         return res.redirect("/NotEnoughPoints");
@@ -83,8 +83,10 @@ const CheckIfThereIsEnoughPoints = (req, res, next) => {
       console.error(`ErrorPoints 83: ${err}`);
       if (err instanceof Error)
         return res.status(403).json({
-          msg: "עליך קודם לבחור סקין",
+          msg: "אין לך מספיק נקודות לקנות סקין זה",
         });
+      if (err instanceof ErrorEvent)
+        return res.status(401).json({ msg: "משהו השתבש נסה לבחור סקין שוב" });
       res.status(500).json({
         msg: "שגיאה לא צפויה אנא רענן את הדף",
       });
